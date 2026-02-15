@@ -1,10 +1,6 @@
-const fastify = require('fastify')({ logger: true })
+import app from './app.js'
 
-fastify.get('/', function handler (request, reply) {
-  reply.send({ hello: 'world' })
-})
-
-fastify.listen({ port: 3000 }, (err) => {
+app.listen({ port: 3000 }, function (err) {
   if (err) {
     fastify.log.error(err)
     process.exit(1)

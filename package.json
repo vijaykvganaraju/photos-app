@@ -1,15 +1,20 @@
 {
-  "name": "photos-app",
-  "version": "0.0.1",
-  "description": "A photos app with cloud storage",
-  "license": "ISC",
-  "author": "Vijay Ganaraju",
-  "type": "commonjs",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "dependencies": {
-    "fastify": "^5.7.4"
-  }
+	"name": "photos-app",
+	"version": "0.0.1",
+	"description": "A photos app with cloud storage",
+	"license": "ISC",
+	"author": "Vijay Ganaraju",
+	"type": "module",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"dependencies": {
+		"@fastify/multipart": "^9.4.0",
+		"@fastify/sensible": "^6.0.4",
+		"fastify": "^5.7.4"
+	},
+	"devDependencies": {
+		"nodemon": "^3.1.11"
+	}
 }
