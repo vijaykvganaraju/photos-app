@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Photos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="logo">photos</div>
+        <nav class="nav-links">
+          <button class="is-active">Photos</button>
+          <button disabled>Memories</button>
+          <button disabled>Albums</button>
+          <button disabled>Favorites</button>
+        </nav>
+      </aside>
+
+      <main class="content">
+        <header class="topbar">
+          <h1>All photos</h1>
+          <div class="topbar-actions">
+            <div id="provider-pills" class="provider-pills"></div>
+            <label class="upload-btn">
+              <input id="photo-input" type="file" accept="image/*" multiple />
+              Upload
+            </label>
+          </div>
+        </header>
+
+        <section id="gallery" class="gallery" aria-live="polite"></section>
+      </main>
+    </div>
+
+    <template id="tile-template">
+      <article class="photo-card">
+        <img loading="lazy" alt="Uploaded photo" />
+        <footer>
+          <span class="photo-provider"></span>
+          <span class="photo-date"></span>
+        </footer>
+      </article>
+    </template>
+
+    <dialog id="viewer" class="viewer" aria-label="Photo viewer">
+      <div class="viewer-shell">
+        <button id="viewer-close" class="viewer-control close" aria-label="Close viewer">x</button>
+        <button id="viewer-prev" class="viewer-control prev" aria-label="Previous photo"><</button>
+        <img id="viewer-image" alt="Selected photo" />
+        <button id="viewer-next" class="viewer-control next" aria-label="Next photo">></button>
+        <button id="viewer-meta-toggle" class="viewer-control meta" aria-label="Toggle metadata">i</button>
+
+        <aside id="viewer-meta" class="viewer-meta" hidden>
+          <div class="viewer-meta-header">
+            <h2>Photo details</h2>
+            <button id="viewer-meta-close" class="viewer-meta-close" aria-label="Close metadata">x</button>
+          </div>
+          <dl>
+            <div><dt>Name</dt><dd id="meta-name"></dd></div>
+            <div><dt>Type</dt><dd id="meta-type"></dd></div>
+            <div><dt>Size</dt><dd id="meta-size"></dd></div>
+            <div><dt>Uploaded</dt><dd id="meta-uploaded"></dd></div>
+            <div><dt>Provider</dt><dd id="meta-provider"></dd></div>
+            <div><dt>Checksum</dt><dd id="meta-checksum"></dd></div>
+          </dl>
+        </aside>
+      </div>
+    </dialog>
+
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>
